@@ -117,53 +117,6 @@ function convertCurrency($amount = null, $from, $to)
     ];
 }
 
-
-/* function convertEuroDollars($euro = null, $dollars = null, $livre = null, $yen = null){
-        $currency = $euro === null ? 'USD' : 'EUR';
-        $reverseCurrency = $currency === 'EUR' ? 'USD' : 'EUR';
-        
-        $url = 'https://v6.exchangerate-api.com/v6/0a0575a23e02c7fee5a6c464/latest/' . $currency;
-    
-        $data = file_get_contents($url);
-        write_to_console($data);
-        $data = json_decode($data, true);
-        $rate = $data['rates'][$reverseCurrency];
-    
-        if($euro === null){
-            $euro = $dollars * $rate;
-            return [
-                'EUR' => $euro,
-                'JPY' => $euro * $data['rates']['JPY'],
-                'GBP' => $euro * $data['rates']['GBP']
-            ];
-        }
-        if($dollars === null){
-            $dollars = $euro * $rate;
-            return [
-                'USD' => $dollars,
-                'JPY' => $dollars * $data['rates']['JPY'],
-                'GBP' => $dollars * $data['rates']['GBP']
-            ];
-        }
-        if($livre === null){
-            $livre = $euro * $rate * $data['rates']['GBP'];
-            return [
-                'GBP' => $livre,
-                'JPY' => $livre * $data['rates']['JPY'],
-                'USD' => $livre / $data['rates']['GBP']
-            ];
-        }
-        if($yen === null){
-            $yen = $euro * $rate * $data['rates']['JPY'];
-            return [
-                'JPY' => $yen,
-                'GBP' => $yen * $data['rates']['GBP'],
-                'USD' => $yen / $data['rates']['JPY']
-            ];
-        }
-    }*/
-
-
 function write_to_console($data)
 {
     $console = $data;
