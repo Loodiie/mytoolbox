@@ -102,7 +102,7 @@ function cesar($clear, $key, $reverse = false)
 }*/
 
 
-function convertCurrency($amount = null, $from, $to)
+function convertCurrency($from, $amount, $to)
 {
 
     $url = 'https://open.er-api.com/v6/latest/' . $from;

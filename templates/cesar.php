@@ -13,7 +13,7 @@ template('header', array(
 
         <div class="row">
             <figure class="bg-light rounded p-3">
-                <blockquote cite="https://www.huxley.net/bnw/four.html"> <!-- Lien a modifier -->
+                <blockquote>
                     <p>
                         Le code César est une méthode de cryptage qui consiste à décaler chaque lettre de l'alphabet d'un certain rang.
                         Ce code est le plus simple et le plus connu de la cryptographie, mais cela reste très amusant à utiliser.
