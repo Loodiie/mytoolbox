@@ -16,8 +16,8 @@ template('header', array(
                 <fieldset class="col-12 mt-4">
                     <legend>Montant à convertir</legend>
                     <form action="" method="post" name="euros-dollars">
-                        <div class="form-group row">
-                            <div class="col">
+                        <div class="form-group row mb-3">
+                            <div class="col-md-4">
                                 <label for="amount" aria-hidden="true" hidden>Montant</label>
                                 <div class="input-group">
                                     <input id="amount" name="amount" type="number" class="form-control" required>
@@ -36,11 +36,11 @@ template('header', array(
                                 </div>
                             </div>
 
-                            <div class="d-inline-flex align-items-center ">
+                            <div class="text-center col-md-2 mb-1 mt-1">
                                 <span class="ver">vaut actuellement</span>
                             </div>
 
-                            <div class="col">
+                            <div class="col-md-4">
                                 <label for="result" aria-hidden="true" hidden>Montant converti</label>
                                 <div class="input-group">
                                     <input id="result" name="result" type="number" class="form-control" disabled> 
@@ -60,7 +60,7 @@ template('header', array(
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-2">
+                            <div class="col-md-2 mt-2 mt-md-0 m-auto col-4">
                                 <button name="submit" type="submit" class="btn btn-primary btn-block">Convertir</button>
                             </div>                   
                         </div>
@@ -101,6 +101,7 @@ template('header', array(
     </script>
 
 <?php template('footer');
+
 
 
 

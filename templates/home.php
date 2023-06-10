@@ -71,9 +71,9 @@ if (!empty($_POST)) {
     <div class="container">
         <div class="section-title">
             <h2>La boite à outils </h2>
-            <p>La boite à outils est un site accessible 24h/24 et 7j/7 qui vous permet de réaliser un bon nombre de calculs ou transformations nécessaires au quotidien</p>
+            <p>La boite à outils est un site accessible 24h/24 et 7j/7 qui vous permet de réaliser un bon nombre de calculs ou transformations nécessaires au quotidien.</p>
 
-            <p>Transformer 1/4 de litres en millilitres ou encore convertir des euros en dollars n'a jamais été aussi simple !</p>
+            <!--<p>Transformer 1/4 de litres en millilitres ou encore convertir des euros en dollars n'a jamais été aussi simple !</p>-->
         </div>
 
         <?php getAlert($messages); ?>
@@ -96,7 +96,7 @@ if (!empty($_POST)) {
                         <div class="col-md-6">
                             <div class="md-form mb-0">
                                 <label for="email" class=""></label>
-                                <input type="text" id="email" name="email" class="form-control"placeholder="Votre Email">
+                                <input type="email" id="email" name="email" class="form-control"placeholder="Votre Email">
                             </div>
                         </div>
                     </div>

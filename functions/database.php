@@ -33,7 +33,7 @@ function insert(string $table, array $datas) {
     $dataValues = null;
     foreach($datas as $column => $values) {
         $dataColumn .= $column . ",";
-        $dataValues .= "'" . $values . "',";
+        $dataValues .= "'" . ($values) . "',";
     }
 
     $dataColumn = rtrim($dataColumn,',');
