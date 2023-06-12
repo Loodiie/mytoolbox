@@ -80,13 +80,8 @@ function convertCurrency($amount = null, $from, $to){
     ];
 }
 
-function write_to_console($data)
-{
-    $console = $data;
-    if (is_array($console))
-        $console = implode(',', $console);
-
-    echo "<script>console.log('Console: " . $console . "' );<:script>";
+function convertVolume($volume, $from, $to){
+    return [
+        'result' => $volume * $from / $to
+    ];
 }
-
-   // write_to_console($data);

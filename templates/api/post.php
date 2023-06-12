@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 $json = file_get_contents('php://input');
 $body = json_decode($json); // Converts it into a PHP object
 $result = null;
-if($body === null){
+if ($body === null) {
     $data = [
         'response' => 'error',
         'message' => 'No data sent'
@@ -22,7 +22,7 @@ if($body === null){
     exit;
 }
 
-if(!isset($body->form)){
+if (!isset($body->form)) {
     $data = [
         'response' => 'error',
         'message' => 'No form name'
@@ -32,18 +32,18 @@ if(!isset($body->form)){
 }
 
 
-switch ($body->form){
+switch ($body->form) {
     case 'percent':
         $percent = null;
         $of = null;
 
-        if(isset($body->percent)){
+        if (isset($body->percent)) {
             $percent = $body->percent;
         }
-        if(isset($body->result)){
+        if (isset($body->result)) {
             $result = $body->result;
         }
-        if(isset($body->of)){
+        if (isset($body->of)) {
             $of = $body->of;
         }
 
@@ -73,7 +73,7 @@ switch ($body->form){
     case 'cesar':
         $reverse = false;
         $text = '';
-        if(property_exists($body, 'result')) {
+        if (property_exists($body, 'result')) {
             $reverse = true;
             $text = $body->result;
         } else {
@@ -90,13 +90,37 @@ switch ($body->form){
         ];
         echo json_encode($data);
         break;
-        case 'devises':
-            $amount = null;
+    case 'devises':
+        $amount = null;
+        $from = null;
+        $to = null;
+
+        if (property_exists($body, 'amount')) {
+            $amount = $body->amount;
+        }
+        if (property_exists($body, 'from')) {
+            $from = $body->from;
+        }
+        if (property_exists($body, 'to')) {
+            $to = $body->to;
+        }
+
+        $result = convertCurrency($amount, $from, $to);
+
+        $data = [
+            'response' => 'success',
+            'message' => 'Calcul réussi',
+            'data' => $result
+        ];
+        echo json_encode($data);
+        break;
+        case 'volume':
+            $volume = null;
             $from = null;
             $to = null;
     
-            if(property_exists($body, 'amount')){
-                $amount = $body->amount;
+            if(property_exists($body, 'volume')){
+                $volume = $body->volume;
             }
             if(property_exists($body, 'from')){
                 $from = $body->from;
@@ -105,7 +129,7 @@ switch ($body->form){
                 $to = $body->to;
             }
       
-            $result = convertCurrency($amount, $from, $to);
+            $result = convertVolume($volume, $from, $to);
         
             $data = [
                 'response' => 'success',
@@ -114,7 +138,7 @@ switch ($body->form){
             ];
             echo json_encode($data);
             break;
-    }
+}
 
 logSubmitToDatabase($body, $result);
 
