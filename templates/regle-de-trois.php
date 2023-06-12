@@ -13,10 +13,10 @@ template('header', array(
 
             <div class="row">
                 <figure class="bg-light rounded p-3">
-                    <blockquote cite="https://www.huxley.net/bnw/four.html">
-                        <p>En mathématiques élémentaires, la règle de trois ou règle de proportionnalité ou produit en croix est une méthode mathématique permettant de déterminer une quatrième proportionnelle. Plus précisément, trois nombres a, b et c étant donnés, la règle de trois permet, à partir de l'égalité des produits en croix, de trouver le nombre d tel que (a, b) soit proportionnel à (c, d).</p>
+                    <blockquote cite="https://fr.wikipedia.org/wiki/R%C3%A8gle_de_trois">
+                        <p>En mathématiques élémentaires, la règle de trois ou règle de proportionnalité ou produit en croix, est une méthode mathématique permettant de déterminer une quatrième proportionnelle. Plus précisément, trois nombres a, b et c étant donnés, la règle de trois permet, à partir de l'égalité des produits en croix, de trouver le nombre d tel que (a, b) soit proportionnel à (c, d).</p>
                     </blockquote>
-                    <figcaption><cite><a href="https://fr.wikipedia.org/wiki/R%C3%A8gle_de_trois">Wikipedia</a></cite></figcaption>
+                    <figcaption><cite><a href="https://fr.wikipedia.org/wiki/R%C3%A8gle_de_trois" target="_blank">Wikipedia</a></cite></figcaption>
                 </figure>
             </div>
 
@@ -25,7 +25,7 @@ template('header', array(
                 <fieldset class="col-12 mt-4">
                     <legend>Calculer X</legend>
                     <form action="" method="POST" name="regle-de-trois">
-                        <div class="form-group row">
+                        <div class="form-group row mb-2">
                             <div class="col">
                                 <label for="a" aria-hidden="true" hidden>Nombre A</label>
                                 <div class="input-group">
@@ -33,8 +33,8 @@ template('header', array(
                                 </div>
                             </div>
 
-                            <div class="d-inline-flex align-items-center">
-                                <span class="ver"> ----> </span>
+                            <div class="col-2 text-center">
+                                <span class="ver"> ----> </span>  
                             </div>
                             <div class="col">
                                 <label for="c" aria-hidden="true" hidden>Nombre C</label>
@@ -44,7 +44,7 @@ template('header', array(
                             </div>
                         </div>
 
-                       <div class="form-group row">
+                       <div class="form-group row mb-2">
                             <div class="col">
                                 <label for="b" aria-hidden="true" hidden>Nombre B</label>
                                 <div class="input-group">
@@ -52,8 +52,8 @@ template('header', array(
                                 </div>
                             </div>
 
-                            <div class="d-inline-flex align-items-center">
-                                <span class="ver"> ----> </span>
+                            <div class="col-2 text-center">
+                                <span class="ver"> ----> </span> 
                             </div>
                             <div class="col">
                                 <label for="d" aria-hidden="true" hidden>Nombre D</label>
@@ -63,8 +63,8 @@ template('header', array(
                             </div>
                         </div>
 
-                       <div class="form-group row">
-                           <div class="col">
+                       <div class="form-group row mb-2">
+                           <div class="col-md-2 mt-2 mt-md-0 m-auto col-4">
                                <button name="submit" type="submit" class="btn btn-primary btn-block">Calculer</button>
                            </div>
                        </div>

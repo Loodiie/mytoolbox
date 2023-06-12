@@ -9,8 +9,8 @@ if (!empty($_POST)) {
     $submited_items = array(
         'name' => addslashes($_POST['name']),
         'email' => $_POST['email'],
-        'subject' => addslashes($_POST['subject']),
-        'message' => addslashes($_POST['message'])
+        'subject' => $_POST['subject'],
+        'message' => $_POST['message']
     );
 
     $validated_items = validate($submited_items, array(
@@ -93,7 +93,9 @@ if (!empty($_POST)) {
                                 <input type="text" id="name" name="name" class="form-control" placeholder="Votre nom">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                    </div>
+                    <div class="row mt-4">
+                        <div class="col-md-12">
                             <div class="md-form mb-0">
                                 <label for="email" class=""></label>
                                 <input type="email" id="email" name="email" class="form-control"placeholder="Votre Email">

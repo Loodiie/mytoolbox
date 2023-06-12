@@ -62,7 +62,7 @@ function insert(string $table, array $datas) {
 /**
  * @param string table name
  * @param string column
- * @param array conditions
+ * @param array conditionsS
  *
  * return array if has some data, false otherwise
  */

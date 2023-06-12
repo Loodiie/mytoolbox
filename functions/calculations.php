@@ -66,15 +66,14 @@ function cesar($clear, $key, $reverse = false)
     }
 }
 
-function convertCurrency($from, $amount, $to)
-{
-
+function convertCurrency($amount = null, $from, $to){ 
+        
     $url = 'https://open.er-api.com/v6/latest/' . $from;
-
+    
     $data = file_get_contents($url);
     $data = json_decode($data, true);
     $rate = $data['rates'][$to];
-
+    
     $convertedAmount = $amount * $rate;
     return [
         'result' => $convertedAmount,

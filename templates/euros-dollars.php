@@ -1,6 +1,6 @@
 <?php
 template('header', array(
-    'title' => 'Boite à outils • Devise',
+    'title' => 'Boite à outils • Convertisseur',
 ));
 ?>
 
@@ -15,7 +15,7 @@ template('header', array(
 
                 <fieldset class="col-12 mt-4">
                     <legend>Montant à convertir</legend>
-                    <form action="" method="post" name="euros-dollars">
+                    <form action="" method="post" name="devises">
                         <div class="form-group row mb-3">
                             <div class="col-md-4">
                                 <label for="amount" aria-hidden="true" hidden>Montant</label>
@@ -87,88 +87,16 @@ template('header', array(
                         body: JSON.stringify(
                             Object.assign(Object.fromEntries(formData), {form: event.target.name})
                         )
-                    }); 
-                    console.log(event.target.name);
+                    });
 
                     const result = await response.json();
 
                     let inputName = Object.keys(result.data)[0];
 
-                    event.target.querySelector(`input[name="${inputName}"]`).value = result.data[inputName]; //ajout de la fin de ligne avec celle en exemple dans règle de 3
+                    event.target.querySelector(`input[name="${inputName}"]`).value = result.data[inputName];
                 })
             }
         });
     </script>
 
 <?php template('footer');
-
-
-
-
-/*     <?php
-template('header', array(
-    'title' => 'Convertisseur de devises',
-));
-?>
-
-<section id="conversion" class="conversion">
-  <div class="container">
-    <div class="section-title">
-      <h2>Convertisseur de devises</h2>
-    </div>
-
-    <div class="row">
-      <div class="col-12 mt-4">
-        <fieldset>
-          <legend>Conversion de devises</legend>
-          <form action="" method="post" name="euros-dollars">
-            <div class="form-group">
-              <label for="montant">Montant</label>
-              <div class="input-group">
-                <input id="montant" name="montant" type="number" class="form-control" required>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="devise1">Devise d'origine</label>
-              <div class="input-group">
-                <select id="devise1" name="devise1" class="form-control" required>
-                  <option value="">Choisir une devise</option>
-                  <option value="EUR">Euro (€)</option>
-                  <option value="USD">Dollar américain ($)</option>
-                  <option value="GBP">Livre sterling (£)</option>
-                  <option value="JPY">Yen japonais (¥)</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="devise2">Devise de conversion</label>
-              <div class="input-group">
-                <select id="devise2" name="devise2" class="form-control" required>
-                  <option value="">Choisir une devise</option>
-                  <option value="EUR">Euro (€)</option>
-                  <option value="USD">Dollar américain ($)</option>
-                  <option value="GBP">Livre sterling (£)</option>
-                  <option value="JPY">Yen japonais (¥)</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group">
-              <button name="submit" type="submit" class="btn btn-primary btn-block">Convertir</button>
-            </div>
-          </form>
-        </fieldset>
-      </div>
-      <div class="col-12 mt-4">
-        <fieldset>
-          <legend>Résultat</legend>
-          <div class="form-group">
-            <label for="resultat">Résultat</label>
-            <div class="input-group">
-              <input id="resultat" name="resultat" type="number" class="form-control" disabled>
-            </div>
-          </div>
-        </fieldset>
-      </div>
-    </div>
-  </div>
-</section><!-- End Home Section -->*/

@@ -90,7 +90,7 @@ switch ($body->form){
         ];
         echo json_encode($data);
         break;
-        case 'euros-dollars':
+        case 'devises':
             $amount = null;
             $from = null;
             $to = null;
