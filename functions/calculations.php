@@ -32,7 +32,41 @@ function ruleOfThird($a = 1, $b = 1, $c = 1): array
         'd' => ($b * $c)  / $a,
     ];
 }
-function cesar($clear, $key, $reverse = false)
+    function cesar($clear, $key, $reverse = false){
+        $alphabet = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $alphabet = str_split($alphabet);
+        $clear = str_split($clear);
+        $result = '';
+    
+        foreach ($clear as $letter){
+            if ($letter === ' ') { // Vérifier si le caractère est un espace
+                $result .= ' '; // Ajouter l'espace directement au résultat
+            } elseif(($letter >= "a" && $letter <= "z") || ($letter >= "A" && $letter <= "Z")) {
+                $index = array_search($letter, $alphabet);
+                $index = $reverse ? $index - $key : $index + $key;
+                if($index > 25){
+                    $index = $index - 26;
+                }
+                if($index < 0)
+                    $index = $index +26;
+                $result .= $alphabet[$index];
+            }
+        }
+    
+        if($reverse){
+            return [
+                'clear' => $result,
+            ];
+        } else {
+            return [
+                'result' => $result,
+            ];
+        }
+    }
+
+
+
+/*function cesar($clear, $key, $reverse = false)
 {
     $clearing = str_split($clear);
     $result = '';
@@ -64,7 +98,7 @@ function cesar($clear, $key, $reverse = false)
             'result' => $result,
         ];
     }
-}
+}*/
 
 function convertCurrency($amount = null, $from, $to){ 
         

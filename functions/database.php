@@ -35,27 +35,42 @@ function run_query(string $query) {
  */
 function insert(string $table, array $datas) {
     $connection = new PDO("mysql:host=".DB_HOST.";dbname=".DB_NAME.";port=".DB_PORT, DB_USER, DB_PASSWORD);
+    // Établir une connexion à la base de données en utilisant PDO
+
     $connection->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    // Définir le mode de gestion des erreurs pour PDO afin de générer des exceptions en cas d'erreur
 
     $columns = [];
     $values = [];
+    // Créer deux tableaux vides pour stocker les noms des colonnes et les valeurs des données à insérer
 
     foreach ($datas as $column => $value) {
         $columns[] = $column;
         $values[] = $value;
     }
+    // Parcourir le tableau $datas et extraire les noms des colonnes et les valeurs des données
 
     $columnNames = implode(",", $columns);
+    // Concaténer les noms des colonnes séparés par des virgules pour les utiliser dans la requête SQL
+
     $placeholders = implode(",", array_fill(0, count($values), "?"));
+    // Créer une chaîne de caractères contenant des marqueurs de paramètres de la même longueur que le nombre de valeurs à insérer
 
     $query = "INSERT INTO $table ($columnNames) VALUES ($placeholders)";
+    // Construire la requête SQL INSERT INTO en utilisant le nom de la table, les noms des colonnes et les marqueurs de paramètres
 
     try {
         $statement = $connection->prepare($query);
+        // Préparer la requête SQL
+
         $statement->execute($values);
+        // Exécuter la requête SQL en passant les valeurs des données à insérer
+
         return $connection->lastInsertId();
+        // Renvoyer l'ID généré pour la dernière insertion effectuée
     } catch (PDOException $e) {
         throw new Exception("Query execution failed: " . $e->getMessage());
+        // Capturer les exceptions PDO liées à l'exécution de la requête SQL et les relancer avec un message d'erreur personnalisé
     }
 }
 
