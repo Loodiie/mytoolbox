@@ -70,6 +70,7 @@ template('header', array(
 
       <fieldset class="col-12 mt-4">
         <legend>Volume à convertir</legend>
+        <label for="clear">Volume à convertir</label>
         <form action="" method="post" name="volume">
           <div class="form-group row mb-3">
             <div class="col-md-4">
